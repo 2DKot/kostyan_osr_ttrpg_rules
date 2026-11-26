@@ -43,7 +43,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           RELEASE_TAG: ${{ steps.version.outputs.tag }}
         run: |
-          gh release create "$RELEASE_TAG" output/rules.pdf \
+          gh release create "$RELEASE_TAG" "output/Kostyan OSR.pdf" \
             --title "$RELEASE_TAG" \
             --target "$GITHUB_SHA" \
             --notes "Compiled from $GITHUB_SHA."
