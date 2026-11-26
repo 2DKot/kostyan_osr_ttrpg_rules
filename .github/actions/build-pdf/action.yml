@@ -13,7 +13,7 @@ runs:
       shell: bash
       run: sudo apt-get update && sudo apt-get install -y fonts-liberation
 
-      - name: Compile the PDF
+    - name: Compile the PDF
       shell: bash
       run: |
         mkdir -p output
