@@ -1,0 +1,25 @@
+name: Build PDF
+description: Install Typst, compile src/rules.typ, and upload the PDF artifact.
+
+runs:
+  using: composite
+  steps:
+    - name: Install Typst
+      uses: typst-community/setup-typst@00ad6338f0b34724ea002136bfb701a6c18585b0 # v5.3.2
+      with:
+        typst-version: "0.15.1"
+
+    - name: Install Liberation fonts
+      shell: bash
+      run: sudo apt-get update && sudo apt-get install -y fonts-liberation
+
+    - name: Compile the PDF
+      shell: bash
+      run: typst compile --root . src/rules.typ output/rules.pdf
+
+    - name: Upload PDF artifact
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+      with:
+        name: rules
+        path: output/rules.pdf
+        if-no-files-found: error

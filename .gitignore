@@ -1,0 +1,14 @@
+# Typst build output
+output/
+*_cache/
+*_files/
+
+# Generated PDFs stay out of the source tree
+*.pdf
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+*.tmp
+~$*
+
